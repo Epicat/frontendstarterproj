@@ -1,0 +1,488 @@
+/// <binding ProjectOpened='watch' />
+/* eslint-env node */
+'use strict';
+
+var PROTOTYPE = true;
+var gulp = require('gulp');
+var nm = {}; // node modules collection
+nm.fs = require('fs');
+nm.minimist = require('minimist');
+
+if (PROTOTYPE) {
+	nm.browserSync = require('browser-sync').create();
+}
+
+/**
+ * CLI options
+ */
+var knownOptions = {
+		string: ['env', 'ver'],
+		default: {
+			env: 'dev',
+			ver: 'patch'
+		},
+		alias: {e: 'env', v: 'ver'}
+	},
+	options = nm.minimist(process.argv.slice(2), knownOptions);
+
+/**
+ * Paths to files and folders
+ */
+var paths = {};
+paths.src = 'src';
+paths.root = paths.src;
+paths.dist = 'dist';
+paths.export = 'export';
+paths.assets = paths.root + '/Assets'; // if you change this, don't forget to edit .bowerrc
+
+paths.njhtml = paths.src + '/Views'; // changes to this might require change to bump task
+paths.html = paths.src;
+paths.scss = paths.assets + '/scss';
+paths.css = paths.assets + '/css';
+paths.js = paths.assets + '/js';
+paths.img = paths.assets + '/images';
+paths.dummy = paths.root + '/Dummy';
+paths.bower = JSON.parse(nm.fs.readFileSync('.bowerrc', 'utf8')).directory; // edit in .bowerrc
+
+paths.getRelative = function (context, path, delimiter) {
+	delimiter = delimiter || '/';
+	// context = 'src/js', path = 'src/js/vendor/modernizr.js'
+	// -> 'vendor/modernizr.js'
+
+	return path.replace(context + delimiter, '');
+};
+
+/**
+ * Utility tasks
+ */
+
+// Bump version information in application files
+// --version (-v) version to apply
+gulp.task('bump', function () {
+	nm.bump = require('gulp-bump');
+	nm.semver = require('semver');
+	nm.replace = require('gulp-replace');
+
+	var config = {},
+		version;
+
+	if (/^(\d+\.\d+\.\d+)/.test(options.ver)) {
+		version = options.ver;
+	}
+	else {
+		version = nm.semver.inc(require('./' + paths.src + '/prototype.json').version, options.ver);
+	}
+
+	config.version = version;
+
+	gulp.src([
+			'bower.json',
+			'package.json',
+			paths.src + '/prototype.json'
+		],
+		{
+			base: '.'
+		})
+		.pipe(nm.bump(config))
+		.pipe(gulp.dest('.'));
+
+	/**
+	 * This subtask expects to find the version meta tag
+	 */
+	gulp.src([
+			paths.njhtml + '/layouts/site.njhtml',
+			paths.html + '/*.html'
+		],
+		{
+			base: paths.src
+		})
+		.pipe(nm.replace(/(<meta\s*name="version"\s*content=".*)/, '<meta name="version" content="' + version + '">'))
+		.pipe(gulp.dest(paths.src));
+});
+
+
+/**
+ * Server / build related tasks
+ */
+
+// Precompile nunjucks to html
+var changedPage;
+gulp.task('nunjucks', function (cb) {
+	if (!PROTOTYPE) return cb();
+
+	nm.plumber = require('gulp-plumber');
+	nm.nunjucks = require('gulp-nunjucks-html');
+	nm.frontMatter = require('front-matter');
+	nm.data = require('gulp-data');
+	nm.prettify = require('gulp-prettify');
+
+	var glob = (changedPage) ? changedPage : paths.njhtml + '/*.njhtml';
+	changedPage = false;
+
+	return gulp.src(glob)
+		// Output error message.
+		// Also keeps watch from stopping when errors occur.
+		.pipe(nm.plumber({
+			errorHandler: function (err) {
+				console.error(
+					err.plugin + ':\n' +
+					err.name + '\n' +
+					err.message + '\n' +
+					'lineno: ' + err.lineno + ', colno: ' + err.colno
+				);
+			}
+		}))
+		// Pull front matter data from source files
+		// and pass on to nunjucks.
+		.pipe(nm.data(function (file) {
+			var content = nm.frontMatter(String(file.contents));
+			file.contents = new Buffer(content.body);
+			return content.attributes;
+		}))
+		// Parse nunjucks templates
+		.pipe(nm.nunjucks({
+			// feed paths to local variable scope
+			locals: {
+				paths: {
+					js: paths.getRelative(paths.html, paths.js),
+					css: paths.getRelative(paths.html, paths.css),
+					img: paths.getRelative(paths.html, paths.img),
+					dummy: paths.getRelative(paths.html, paths.dummy),
+					bower: paths.getRelative(paths.html, paths.bower)
+				}
+			},
+			// add paths to searchPaths
+			searchPaths: [
+				paths.njhtml + '/layouts',
+				paths.njhtml + '/partials'
+			],
+			// output html instead of njhtml
+			ext: '.html'
+		}))
+		// Prettify output
+		.pipe(nm.prettify({
+			'indent_with_tabs': true,
+			'preserve_newlines': true,
+			'max_preserve_newlines': 2,
+			'unformatted': ['pre', 'code', 'script'],
+			'extra_liners': []
+		}))
+		.pipe(gulp.dest(paths.html));
+});
+
+// Reload page after nunjucks task
+gulp.task('post-nunjucks', ['nunjucks'], function () {
+	nm.browserSync.reload();
+});
+
+// Precompile scss to css
+gulp.task('sass', function () {
+	nm.sass = require('gulp-sass');
+	nm.es = require('event-stream');
+	nm.injectPaths = function (artifacts) {
+		/**
+		 * inject paths from paths object into sass environment
+		 * will look for variables mathing this pattern:
+		 * $paths-{pathType}: 'default/path/in/scss/file' !default;
+		 * if pathType is found in paths object
+		 * it will add a new varible assignment in the sass file:
+		 * $paths-{pathType}: 'path/in/paths/object';
+		 * this will supersede the default assignment
+		 */
+
+		// loop through all the passed files
+		return nm.es.map(function (file, cb) {
+			// store contents
+			var fileContent = file.contents.toString(),
+				// pattern to match variables with
+				exp = /\$paths-(\w+):\s*'?(.+)'?\s+!default;/g,
+				injectStart = null,
+				injection = '',
+				match;
+
+			// while matches are found
+			while ((match = exp.exec(fileContent)) !== null) {
+				// save index of first match as injection point
+				if (injectStart === null) {
+					injectStart = match.index;
+				}
+
+				// identify capture groups from regex
+				var type = match[1],
+					value = match[2];
+
+				// look for match in paths object
+				if (paths.hasOwnProperty(type)) {
+					// store line matched
+					var subInjection = match[0];
+					// replace variable value and strip !default flag
+					subInjection = subInjection.replace(value, paths[type]).replace(' !default', '');
+					// add to injection
+					injection += subInjection + '\n';
+				}
+			}
+
+			// inject to file content
+			fileContent = fileContent.substr(0, injectStart) + injection + fileContent.substr(injectStart);
+
+			// replace contents property of vinyl object
+			file.contents = new Buffer(fileContent);
+
+			// trigger done
+			cb(null, file);
+		});
+	};
+
+	return gulp.src(paths.scss + '/test.scss')
+		// inject values in paths object
+		.pipe(nm.injectPaths())
+		// compile sass to css
+		.pipe(
+			nm.sass()
+			// log error and keep watchers from stopping when error occurs
+			.on('error', nm.sass.logError)
+		)
+		.pipe(gulp.dest(paths.css));
+});
+
+// Live-reload css after sass task
+gulp.task('post-sass', ['sass'], function () {
+	if (PROTOTYPE) {
+		nm.browserSync.reload(paths.css + '/*.css');
+	}
+});
+
+// Process referenced js / css and replace references to output files
+// --env (-e) target environment (should only be used with build task)
+var useminArtifacts = [];
+gulp.task('usemin', ['cleanDist', 'sass', 'nunjucks'], function () {
+	nm.usemin = require('gulp-usemin');
+	nm.cssmin = require('gulp-cssmin');
+	nm.uglify = require('gulp-uglify');
+	nm.rev = require('gulp-rev');
+	nm.sourceMaps = require('gulp-sourcemaps');
+	nm.if = require('gulp-if');
+	nm.filter = require('gulp-filter');
+	nm.vinylPaths = require('vinyl-paths');
+
+	var uglifySettings = {compress: {'drop_console': false}},
+		cwd = __dirname;
+
+	if (options.env === 'prod') {
+		uglifySettings.compress['drop_console'] = true;
+	}
+
+	return gulp.src(paths.html + '/*.html')
+		// Get usemin resource blocks from html files.
+		// Map named blocks against configs.
+		.pipe(nm.usemin({
+			jsVendor: [
+				nm.uglify(uglifySettings), // minify
+				nm.rev() // cachebuster filename
+			],
+			js: [
+				nm.sourceMaps.init(), // initialize sourcemap
+				nm.uglify(uglifySettings), // minify
+				nm.rev(), // cachebuster filename
+				nm.sourceMaps.write('.') // finalize sourcemap
+			],
+			css: [
+				nm.cssmin(), // minify
+				nm.rev() // cachebuster filename
+			]
+		}))
+		// Log errors
+		.on('error', function (err) {
+			console.log(err);
+		})
+		.pipe(gulp.dest(paths.dist))
+		// (if prototype) Collect task artifacts as an array of filepaths
+		// ...only assets
+		.pipe(nm.if(!PROTOTYPE, nm.filter('**/*.+(css|js|map)')))
+		// ...add paths to collection
+		.pipe(nm.if(
+			PROTOTYPE,
+			nm.vinylPaths(function (artifactPath) {
+				if (!useminArtifacts) useminArtifacts = [];
+				// remove system portion of file path
+				artifactPath = paths.getRelative(cwd, artifactPath, '\\');
+				if (useminArtifacts.indexOf(artifactPath) === -1) {
+					useminArtifacts.push(artifactPath);
+				}
+				return Promise.resolve();
+			})
+		));
+});
+
+// Inject files into csproj
+gulp.task('injectArtifacts', ['usemin'], function () {
+	nm.es = require('event-stream');
+	nm.inject = function (artifacts) {
+		return nm.es.map(function (file, cb) {
+				// file as text
+			var fileContent = file.contents.toString(),
+				// find first include tag with whitespace.
+				// add filepath as capture group for easy replacement.
+				firstInclude = /<Content Include="(.*)".*\/>\s*/.exec(fileContent),
+				// start point of injection before first include tag
+				injectStart = firstInclude.index,
+				// text block to inject
+				injection = '';
+
+			// loop through artifacts
+			for (var a = 0, aLen = artifacts.length; a < aLen; a++) {
+				var artifact = artifacts[a];
+				// construct an include tag replacing template file path with artifact file path
+				artifact = firstInclude[0].replace(firstInclude[1], artifact);
+				injection += artifact;
+			}
+
+			// inject in file content
+			fileContent = fileContent.substr(0, injectStart) + injection + fileContent.substr(injectStart);
+			// write to vinyl
+			file.contents = new Buffer(fileContent);
+
+			// trigger task end
+			cb(null, file);
+		});
+	};
+
+	return gulp.src('*.csproj')
+		// Inject usemin artifacts
+		.pipe(nm.inject(useminArtifacts))
+		.pipe(gulp.dest(paths.dist));
+});
+
+// Clean build dir
+gulp.task('cleanDist', function (cb) {
+	// do nothing
+	if (!PROTOTYPE) return cb();
+
+	nm.del = require('del');
+	return nm.del([paths.dist + '/*']);
+});
+
+// Clean export dir
+gulp.task('cleanExport', function () {
+	nm.del = require('del');
+	return nm.del([paths.export + '/*']);
+});
+
+// Copy assets to build dir
+gulp.task('copyAssets', ['cleanDist'], function () {
+	return gulp.src([
+			paths.assets + '/dummy/**/*',
+			paths.assets + '/fonts/*',
+			paths.assets + '/img/**/*',
+			paths.src + '/prototype.json',
+			paths.src + '/robots.txt'
+		], { base: paths.src })
+		.pipe(gulp.dest(paths.dist));
+});
+
+// Watch source files
+gulp.task('watch', ['sass'], function () {
+	nm.watch = require('gulp-watch');
+
+	nm.watch(
+		[paths.scss + '/**/*.scss'],
+		function () {
+			gulp.start('post-sass');
+		}
+	);
+
+	if (PROTOTYPE) {
+		// TODO figure out cleaner way to only compile modified page
+		// only page files
+		nm.watch(
+			[paths.njhtml + '/*.njhtml'],
+			{events: ['change']},
+			function (vinyl) {
+				// save changed page for individual compiling later.
+				changedPage = vinyl.path;
+				gulp.start('post-nunjucks');
+			}
+		);
+
+		// partials and what not
+		nm.watch(
+			[paths.njhtml + '/*/*.njhtml'],
+			{events: ['change']},
+			function () {
+				gulp.start('post-nunjucks');
+			}
+		);
+	}
+});
+
+// Build source files and copy assets to dist copy
+gulp.task('build', function () {
+	console.log('build task ran with following options:\n', options);
+	var postBuild = [];
+	if (!PROTOTYPE) postBuild.push('injectArtifacts');
+		gulp.start(
+		['copyAssets', 'usemin'],
+		postBuild
+	);
+});
+
+// Export asset source files and project configuration as an importable bundle
+gulp.task('export', ['cleanExport'], function () {
+	nm.replace = require('gulp-replace');
+
+	// Project config
+	gulp.src([
+		'.eslintrc',
+		'bower.json'
+	])
+		.pipe(gulp.dest(paths.export));
+
+	gulp.src('package.json')
+		// remove prototype dependencies
+		.pipe(nm.replace(/,[\s]*"optionalDependencies".+\{[\s\S]*?\}/, ''))
+		.pipe(gulp.dest(paths.export));
+
+	// Project config files containing paths
+	gulp.src([
+		'gulpfile.js',
+		'.bowerrc'
+	])
+		// turn prototype flag false
+		.pipe(nm.replace(/var\s+PROTOTYPE\s*=\s*true/, 'var PROTOTYPE = false'))
+		// set paths.src to .
+		.pipe(nm.replace(/paths\.src\s*=\s*'src'/, 'paths.src = \'.\''))
+		// set paths.root to empty
+		.pipe(nm.replace(/paths\.root\s*=\s*paths\.src/, 'paths.root = \'\''))
+		// set paths.dist to .
+		.pipe(nm.replace(/paths\.dist\s*=\s*'dist'/, 'paths.dist = \'.\''))
+		// adjust bower directory
+		.pipe(nm.replace(/"directory":\s*"src\//, '"directory": "/'))
+		.pipe(gulp.dest(paths.export));
+
+	// Source files
+	gulp.src([
+			paths.src + '/*.*',
+			'!' + paths.src + '/*.html',
+			'!' + paths.src + '/prototype.json',
+			paths.assets + '/**/'
+		],
+		{ base: paths.src }
+	)
+		.pipe(gulp.dest(paths.export));
+});
+
+// Start http server and watch for file changes
+gulp.task('server', function () {
+	nm.browserSync.init({
+		server: paths.src,
+		port: 3000,
+		// feel free to enable these features if needed
+		ghostMode: {
+			clicks: false,
+			scroll: false,
+			forms: false
+		}
+	});
+
+	gulp.start('watch');
+});

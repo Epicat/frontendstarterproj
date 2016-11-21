@@ -1,0 +1,36 @@
+.container {
+	@include container($layout-l);
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+// Grid helper styles. Uncomment if you want them.
+// Keep in mind, they're kind of bloted.
+//
+// @include nested(susy-get(columns, $layout-l)) {
+// 	@for $c from 1 through susy-get(columns) {
+// 		.span-#{$c} {
+// 			@if $c == susy-get(columns) {
+// 				@if susy-get(gutter-position) == before {
+// 					@include span(first $c);
+// 				}
+// 				@elseif susy-get(gutter-position) == after {
+// 					@include span(last $c);
+// 				}
+// 			}
+// 			@else {
+// 				@include span($c);
+// 			}
+// 		}
+// 	}
+
+// 	@if susy-get(gutter-position) == before {
+// 		.span-first { margin-left: 0; }
+// 		[class*="span-"]:first-child { margin-left: 0; }
+// 	}
+
+// 	@elseif susy-get(gutter-position) == after {
+// 		.span-last { margin-right: 0; }
+// 		[class*="span-"]:last-child { margin-right: 0; }
+// 	}
+// }

@@ -1,0 +1,72 @@
+<nav class="component-navigation-accordion">
+	<ul>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">HTML</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav">
+				<li>
+					<a href="#">Tags</a>
+					<div class="toggle-sub"></div>
+					<ul class="sub-nav">
+						<li>
+							<a href="#">Tag 1</a>
+							<div class="toggle-sub"></div>
+							<ul class="sub-nav">
+								<li><a href="#">Tag 1</a></li>
+								<li><a href="#">Tag 2</a></li>
+								<li><a href="#">Tag 3</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Tag 2</a></li>
+						<li><a href="#">Tag 3</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Best practice</a>
+					<div class="toggle-sub"></div>
+					<ul class="sub-nav">
+						<li><a href="#">Tag 1</a></li>
+						<li><a href="#">Tag 2</a></li>
+						<li><a href="#">Tag 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Worst practice</a></li>
+			</ul>
+		</li>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">CSS</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav">
+				<li><a href="#">Tags</a></li>
+				<li><a href="#">SCSS</a></li>
+				<li><a href="#">LESS</a></li>
+				<li><a href="#">IS</a></li>
+				<li><a href="#">MORE</a></li>
+			</ul>
+		</li>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">JS</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav"></ul>
+		</li>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">Jquery</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav"></ul>
+		</li>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">IE Bugs</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav"></ul>
+		</li>
+		<li class="top-level">
+			<a class="menu-nav__link" href="#">Plugin bugs</a>
+			<div class="toggle-sub"></div>
+			<ul class="sub-nav"></ul>
+		</li>
+		<li class="extra-section">
+			<a href="#">Help</a>
+			<a href="#">Log out</a>
+		</li>
+	</ul>
+</nav>

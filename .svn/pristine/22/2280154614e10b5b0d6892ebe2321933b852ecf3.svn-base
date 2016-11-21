@@ -1,0 +1,24 @@
+<header class="header">
+	<div class="row">
+		<div class="small-12 columns">
+
+			<div class="header__block">
+				<a href="/" class="header__block__logo-link">
+					<img class="header__block__logo-image" src="{{ paths.img }}/base-project/logo.svg" alt="Hem">
+				</a>
+
+				<nav class="top-navigation">
+					<ul>
+						<li><a href="" data-site-nav-mobile-trigger="">Meny</a></li>
+						<li><a href="">Menyalternativ 1</a></li>
+						<li><a href="">Menyalternativ 2</a></li>
+						<li><a href="">Menyalternativ 3</a></li>
+						<li><a href="">Menyalternativ 4</a></li>
+						<li><a href="">Menyalternativ 5</a></li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+	</div>
+</header>

@@ -1,0 +1,13 @@
+---
+title: Home
+---
+
+{% extends 'default.njhtml' %}
+
+{% block content %}
+	<div class="container">
+		<h1>Limetta Wiring</h1>
+		<h2>Front end boilerplate</h2>
+		<p>Front-end boilerplate for building static web prototypes.</p>
+	</div>
+{% endblock %}

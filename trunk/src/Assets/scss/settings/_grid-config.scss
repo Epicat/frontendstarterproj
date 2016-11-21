@@ -1,0 +1,10 @@
+$susy: (
+	columns: 12,
+	container: 1144px,
+	gutters: 0.26,
+	gutter-position: before,
+	last-flow: to,
+	use-custom: (
+		clearfix: true
+	)
+);

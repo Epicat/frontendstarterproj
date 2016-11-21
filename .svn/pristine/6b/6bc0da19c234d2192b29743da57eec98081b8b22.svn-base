@@ -1,0 +1,33 @@
+{
+	"name": "Protoypens namn",
+	"version": "0.1.0",
+	"date": "YYYY-MM-DD",
+	"description": "Detta är den beskrivning som kunden kommer att kunna läsa när de öppnar upp prototypen i Limetta Visa.",
+	"external": true,
+	"pages": [
+		{
+			"id": "M1",
+			"link": "start.html",
+			"description": "Startsida",
+			"status": "Ej påbörjad"
+		},
+		{
+			"id": "M2",
+			"link": "news.html",
+			"description": "Nyhetssida",
+			"status": "Påbörjad"
+		},
+		{
+			"id": "M3",
+			"link": "special.html",
+			"description": "Superspeciell sida",
+			"status": "Utgått"
+		},
+		{
+			"id": "M4",
+			"link": "generic.html",
+			"description": "Generell sida",
+			"status": "Klar"
+		}
+	]
+}

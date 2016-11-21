@@ -1,0 +1,37 @@
+.header {
+	background-color: $c__header-background;
+	padding: 20px 0;
+
+	&__block {
+		display: flex;
+
+		&__logo-link {
+
+		}
+
+		&__logo-image {
+			width: 100px;
+			padding: 10px;
+		}
+
+		.top-navigation {
+			align-self: flex-end;
+			ul {
+				list-style-type: none;
+				margin: 0 -10px;
+				padding: 0;
+
+				li {
+					display: inline-block;
+					a {
+						display: block;
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+
+
+
+}

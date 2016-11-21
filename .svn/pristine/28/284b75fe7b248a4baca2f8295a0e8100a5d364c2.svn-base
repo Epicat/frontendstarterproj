@@ -1,0 +1,15 @@
+{% extends 'site.njhtml' %}
+
+{% block body %}
+	<!-- maybe a site header -->
+
+	{% include 'site-header.njhtml' %}
+	{% include 'site-nav-mobile.njhtml' %}
+
+	{% block content %}
+	{% endblock %}
+
+	{% include 'site-footer.njhtml' %}
+
+	<!-- maybe a site footer -->
+{% endblock %}

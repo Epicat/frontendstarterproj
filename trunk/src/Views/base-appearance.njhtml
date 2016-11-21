@@ -1,0 +1,163 @@
+{% extends 'default.njhtml' %}
+
+{% block content %}
+	<h1>Base appearance</h1>
+
+	<h2>About this file</h2>
+	<dl>
+		<dt>What it is</dt>
+		<dd>It is a collection of basic unformatted <em>commonly used</em> html tags</dd>
+		<dd>It is a litmus test of how well the design has been implemented</dd>
+		<dd>It is a work in progress. Crappy coverage? Add, change, adjust, tweak!</dd>
+
+		<dt>What it isn't</dt>
+		<dd>It is not a library of components for the site</dd>
+		<dd>It is not a mood board for the client to sign off on</dd>
+		<dd>A list of all/allowed html tags</dd>
+		<dd>Something that should end up in in the production environment</dd>
+
+		<dt>What it's purpose is</dt>
+		<dd>It is meant to be a showcase of the sites general appearance</dd>
+		<dd>Once the basic design has been set the contents of this file should look good at any given time</dd>
+		<dd>It should expose lack of coverage of the design implementation</dd>
+	</dl>
+
+	<hr>
+
+	<h1>Here comes the tag chart starting with an h1</h1>
+	<h2>Followed by an h2</h2>
+	<h3>And an h3</h3>
+	<h4>Continuing with an h4</h4>
+	<h5>An h5..</h5>
+	<h6>And an h6.. like anybody uses it..</h6>
+
+	<p>
+		<strong>This paragraph has actual content</strong><br>
+		This is a p. This one contains a bunch of inline tags.
+		<a href="#">This is a hyperlink</a> and make sure you can see that it is focused next to <a href="#">other links</a>.
+		Coming up is a -&gt; <span>span</span> &lt;- with no appearance.
+		Elements that by default have styling such as the <b>b-tag</b>, <strong>strong-tag</strong>, the <em>em-tag</em>, the <i>i-tag</i>, the <small>small-tag</small>.
+		Eeh..
+	</p>
+	<p>This is a p. Porro sequi quod, aliquid officiis perferendis quaerat odio recusandae doloremque temporibus laudantium!</p>
+	<p>This is a p. Assumenda ab ratione repudiandae neque quisquam repellendus quis saepe a maiores omnis.</p>
+
+	<h1><a href="#">This is a h1 followed by a p</a></h1>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, distinctio?</p>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, distinctio?</p>
+
+	<h2><a href="#">This is a h2 followed by a p</a></h2>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aut.</p>
+
+	<h3><a href="#">This is a h3 followed by a p</a></h3>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aut.</p>
+
+	<h4><a href="#">This is a h4 followed by a p</a></h4>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aut.</p>
+
+	<h5><a href="#">This is a h5 followed by a p</a></h5>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aut.</p>
+
+	<h6><a href="#">This is a h6 followed by a p</a></h6>
+	<p>This is a following p. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aut.</p>
+
+	<h2>Here comes a list</h2>
+	<ul>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	</ul>
+
+	<h2>Here is an ordered list</h2>
+	<ol>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	</ol>
+
+	<hr>
+
+	<h1>Forms</h1>
+	<p>These labels and inputs are wrapped in divs. That's usually the case</p>
+	<form>
+		<div>
+			<label>Of course a label</label>
+			<input type="text" value="input:text with a value">
+			<input type="text" placeholder="input:text with a placeholder">
+			<input type="password" placeholder="input:password with a placeholder">
+		</div>
+
+		<div>
+			<label>Checkboxes</label>
+			<input type="checkbox" checked="checked" value="0">
+			<input type="checkbox" value="1">
+			<input type="checkbox" value="2">
+		</div>
+
+		<div>
+			<label>Radio buttons</label>
+			<input type="radio" checked="checked" value="0">
+			<input type="radio" value="1">
+			<input type="radio" value="2">
+		</div>
+
+		<div>
+			<label>Select</label>
+			<select>
+				<option value="">Options..</option>
+				<option value="0">More options</option>
+			</select>
+		</div>
+
+		<fieldset>
+			<legend>Fieldset with a legend</legend>
+			<p>In webforms you might want to group form content with a fieldset where otherwise there would be a form</p>
+			<p>Here comes some newer input types</p>
+
+			<div>
+				<label>input:tel</label>
+				<input type="tel">
+			</div>
+			<div>
+				<label>input:search</label>
+				<input type="search">
+			</div>
+			<div>
+				<label>input:email</label>
+				<input type="email">
+			</div>
+			<div>
+				<label>input:date</label>
+				<input type="date">
+			</div>
+			<div>
+				<label>input:number</label>
+				<input type="number">
+			</div>
+			<div>
+				<label>input:url</label>
+				<input type="url">
+			</div>
+			<div>
+				<label>input:text with a datalist</label>
+				<input type="text" list="predefined-values">
+				<datalist id="predefined-values">
+					<option value="A value">
+					<option value="Another value">
+				</datalist>
+			</div>
+		</fieldset>
+
+		<div>
+			<button type="button" disabled>button:button:disabled</button>
+			<button type="submit" disabled>button:submit:disabled</button>
+			<input type="submit" disabled value="input:submit:disabled">
+		</div>
+
+		<div>
+			<button type="button">button:button</button>
+			<button type="submit">button:submit</button>
+			<input type="submit" value="input:submit">
+		</div>
+	</form>
+{% endblock %}

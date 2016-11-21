@@ -1,0 +1,10 @@
+{% extends 'site.njhtml' %}
+
+{% block body %}
+	<!-- maybe a site header -->
+
+	{% block content %}
+	{% endblock %}
+
+	<!-- maybe a site footer -->
+{% endblock %}

@@ -1,0 +1,14 @@
+
+//breakpoint mixin
+@mixin breakpoint ($value, $direction: min) {
+	// if value is a predefined mediaquery
+	// starts with 'only screen and ('
+	$is-string: type-of($value) == "string";
+	@if $is-string and (null != str-index($value, "only screen and (")) {
+		@media #{$value} { @content; }
+	}
+	//else assume it is a px/rem/em value
+	@else {
+		@media #{$screen} and (#{$direction}-width:#{$value}) { @content; }
+	}
+}

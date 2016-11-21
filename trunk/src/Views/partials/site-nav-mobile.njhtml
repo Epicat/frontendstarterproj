@@ -1,0 +1,5 @@
+<section class="site-nav-mobile" data-site-nav-mobile="">
+	<a href="" data-site-nav-mobile-trigger="">Meny</a>
+
+	{% include 'component-navigation-accordion.njhtml' %}
+</section>

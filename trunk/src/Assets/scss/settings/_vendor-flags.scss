@@ -1,0 +1,7 @@
+/* normalize-scss */
+//  IE < 9 support
+$legacy_browser_support: false;
+
+/* bourbon */
+// base for em and rem calculations
+$em-base: 16px;

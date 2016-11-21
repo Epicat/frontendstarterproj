@@ -1,0 +1,24 @@
+{
+  "environment": "production",
+  "prototype": true,
+  "paths": {
+    "src": "src",
+    "root": "src",
+    "dist": "dist",
+    "export": "export",
+    "cms": "/../TEMP_CMS_WEB/Assets",
+    "assets": "src/Assets",
+    "njhtml": "src/Views",
+    "html": "src",
+    "scss": "src/Assets/scss",
+    "css": "src/Assets/css",
+    "js": "src/Assets/js",
+    "img": "src/Assets/img",
+    "dummy": "src/Dummy"
+  },
+  "js": {},
+  "css": {
+    "autoprefix": true
+  },
+  "html": {}
+}

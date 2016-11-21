@@ -1,0 +1,30 @@
+$footer-margin: 6px;
+
+.footer {
+	background: $c__footer-background;
+
+	&__block {
+		display: flex;
+		margin: 0 -$footer-margin;
+		&__col {
+			width: 25%;
+			margin: $footer-margin;
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					display: block;
+					a {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
+	@include susy-media(30em) {
+		background: red;
+	}
+}

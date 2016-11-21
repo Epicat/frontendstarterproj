@@ -1,0 +1,65 @@
+<footer class="footer">
+	<div class="row">
+		<div class="small-12 columns">
+
+			<div class="footer__block">
+				<div class="footer__block__col">
+					<h2>Kolumn 1</h2>
+					<nav>
+						<ul>
+							<li><a href="#">Menyalternativ 1</a></li>
+							<li><a href="#">Menyalternativ 2</a></li>
+							<li><a href="#">Menyalternativ 3</a></li>
+							<li><a href="#">Menyalternativ 4</a></li>
+							<li><a href="#">Menyalternativ 5</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__block__col">
+					<h2>Kolumn 2</h2>
+					<nav>
+						<ul>
+							<li><a href="#">Menyalternativ 1</a></li>
+							<li><a href="#">Menyalternativ 2</a></li>
+							<li><a href="#">Menyalternativ 3</a></li>
+							<li><a href="#">Menyalternativ 4</a></li>
+							<li><a href="#">Menyalternativ 5</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__block__col">
+					<h2>Kolumn 3</h2>
+					<nav>
+						<ul>
+							<li><a href="#">Menyalternativ 1</a></li>
+							<li><a href="#">Menyalternativ 2</a></li>
+							<li><a href="#">Menyalternativ 3</a></li>
+							<li><a href="#">Menyalternativ 4</a></li>
+							<li><a href="#">Menyalternativ 5</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__block__col">
+					<h2>Kontakt</h2>
+					<div class="h-card">
+						<span class="p-name">Företagsnamn</span>
+						<br>
+						<span class="p-street-address">Gatuadress XX</span>
+						<br>
+						<span class="p-postal-code">123 45</span>
+						<span class="p-locality">Stad</span>
+						<br>
+						<span class="p-tel">08-123 456 78</span>
+						<br>
+						<a href="mailto:info@foretaget.se">
+								<span class="u-email">info@foretaget.se</span>
+						</a>
+						<br>
+						<span class="u-url">http://foretaget.se</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</footer>

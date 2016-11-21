@@ -1,0 +1,55 @@
+{
+  "name": "wiring",
+  "version": "0.1.0",
+  "description": "Front-end boilerplate",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.limetta.net:jonas.walden/wiring.git"
+  },
+  "author": "Limetta",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-url-rebase": "^0.2.3",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-filter": "^4.0.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-if": "^2.0.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-rev": "^7.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.24",
+    "gulp-watch": "^4.3.10",
+    "minimist": "^1.2.0",
+    "semver": "^5.3.0",
+    "vinyl-paths": "^2.1.0"
+  },
+  "optionalDependencies": {
+    "nunjucks": "^2.3.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-nunjucks-html": "^2.0.0",
+    "gulp-data": "^1.2.1",
+    "gulp-bump": "^2.4.0",
+    "front-matter": "^2.1.0",
+    "browser-sync": "^2.16.0"
+  },
+  "dependencies": {
+    "wiredep": "^4.0.0"
+  }
+}

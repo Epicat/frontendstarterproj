@@ -1,0 +1,65 @@
+## Todo
+
+### gulp
+
+#### tasks
+- [X] dev
+	- [X] server
+	- [X] watch
+	- [X] livereload
+	- [X] precompilers [sass, nunjucks]
+	- [X] prettify [html]
+	- [?] dev-flaggor
+	- [?] mock API
+- [X] build
+	- [X] byggkopia
+	- [X] optimering [js, css]
+	- [X] cachebuster
+	- [X] source maps
+	- [X] strip console logs
+	- [?] dev-flaggor
+- [ ] tools
+	- [X] version bumping
+	- [ ] set project name and description
+	- [ ] favicons
+- [?] export
+	- [ ] bower -> vendor
+	- [ ] gulpfile light
+- [ ] separate from boilerplate
+	- [ ] image optimizer
+	- [?] glyphicon font generator
+
+#### refactor
+- [ ] split gulpfile into separate files
+
+### css
+- [X] sass
+- [X] vendor [bourbon, susy, normalize]
+- [X] mappstruktur
+- [X] gridconfig
+- [ ] paths from gulpfile
+- [ ] postcss
+- [?] fördefinerade media queries [small, medium, large, monitor/proj (large med låg pixeldensitet?)]
+- [?] vertical rythm
+
+### js
+- [X] fastclick
+- [X] underscore
+- [ ] lodash (instead of underscore) 
+- [ ] main.js -> attach-fastclick.js (encourage separate js files)
+- [ ] cookie-dialog
+
+### html
+- [X] skelett
+- [X] base appearance
+- [X] error sidor [404, 500]
+- [~] og-meta [placeholders], [dynamiska fält via front matter]
+
+### docs
+- [ ] README
+- [ ] quickstart
+- [ ] gruntfile
+- [ ] sass
+- [ ] nunjucks
+- [?] js
+- [ ] migration

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="no-js" lang="sv" prefix="og: http://ogp.me/ns#">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Base Layout | Wiring</title>
+		<meta name="description" content="">
+		<meta name="version" content="0.1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+
+		<!-- build:css Assets/css/app.min.css -->
+		<link rel="stylesheet" href="Assets/css/main.css">
+		<!-- endbuild -->
+	</head>
+	<body class="">
+
+
+		<!-- maybe a site header -->
+
+		<header class="header">
+			<div class="row">
+				<div class="small-12 columns">
+
+					<div class="header__block">
+						<a href="/" class="header__block__logo-link">
+							<img class="header__block__logo-image" src="Assets/img/base-project/logo.svg" alt="Hem">
+						</a>
+
+						<nav class="top-navigation">
+							<ul>
+								<li>
+									<a href="" data-site-nav-mobile-trigger="">Meny</a>
+								</li>
+								<li>
+									<a href="">Menyalternativ 1</a>
+								</li>
+								<li>
+									<a href="">Menyalternativ 2</a>
+								</li>
+								<li>
+									<a href="">Menyalternativ 3</a>
+								</li>
+								<li>
+									<a href="">Menyalternativ 4</a>
+								</li>
+								<li>
+									<a href="">Menyalternativ 5</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<section class="site-nav-mobile" data-site-nav-mobile="">
+			<a href="" data-site-nav-mobile-trigger="">Meny</a>
+
+			<nav class="component-navigation-accordion">
+				<ul>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">HTML</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav">
+							<li>
+								<a href="#">Tags</a>
+								<div class="toggle-sub"></div>
+								<ul class="sub-nav">
+									<li>
+										<a href="#">Tag 1</a>
+										<div class="toggle-sub"></div>
+										<ul class="sub-nav">
+											<li>
+												<a href="#">Tag 1</a>
+											</li>
+											<li>
+												<a href="#">Tag 2</a>
+											</li>
+											<li>
+												<a href="#">Tag 3</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Tag 2</a>
+									</li>
+									<li>
+										<a href="#">Tag 3</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Best practice</a>
+								<div class="toggle-sub"></div>
+								<ul class="sub-nav">
+									<li>
+										<a href="#">Tag 1</a>
+									</li>
+									<li>
+										<a href="#">Tag 2</a>
+									</li>
+									<li>
+										<a href="#">Tag 3</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Worst practice</a>
+							</li>
+						</ul>
+					</li>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">CSS</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav">
+							<li>
+								<a href="#">Tags</a>
+							</li>
+							<li>
+								<a href="#">SCSS</a>
+							</li>
+							<li>
+								<a href="#">LESS</a>
+							</li>
+							<li>
+								<a href="#">IS</a>
+							</li>
+							<li>
+								<a href="#">MORE</a>
+							</li>
+						</ul>
+					</li>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">JS</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav"></ul>
+					</li>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">Jquery</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav"></ul>
+					</li>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">IE Bugs</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav"></ul>
+					</li>
+					<li class="top-level">
+						<a class="menu-nav__link" href="#">Plugin bugs</a>
+						<div class="toggle-sub"></div>
+						<ul class="sub-nav"></ul>
+					</li>
+					<li class="extra-section">
+						<a href="#">Help</a>
+						<a href="#">Log out</a>
+					</li>
+				</ul>
+			</nav>
+
+		</section>
+
+
+		<div class="row">
+			<div class="small-12 columns">
+
+				<h1>Limetta Wiring</h1>
+				<p>Front-end boilerplate.</p>
+
+
+				<div class="teaser-block">
+					<div class="teaser">
+						<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+						<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+						<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus.</p>
+					</div>
+					<div class="teaser">
+						<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+						<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+						<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+					</div>
+					<div class="teaser">
+						<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+						<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+						<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+					</div>
+					<div class="teaser">
+						<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+						<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+						<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<section>
+			<div class="row">
+				<div class="small-12 columns wiring-example">
+
+					<h2>Grid example</h2>
+
+					<style>
+						.wiring-example .placeholder {
+							display: block;
+							width: 100%;
+							height: 60px;
+							line-height: 60px;
+							margin-bottom: 10px;
+							background: #f4f4f4;
+							text-align: center;
+						}
+						
+						.wiring-example .s:before {
+							content: "small-";
+						}
+						
+						.wiring-example .m:before {
+							content: "medium-";
+						}
+						
+						.wiring-example .l:before {
+							content: "large-";
+						}
+						
+						.wiring-example .s {
+							display: inline;
+						}
+						
+						.wiring-example .m {
+							display: none;
+						}
+						
+						.wiring-example .l {
+							display: none;
+						}
+						/* @media #{$medium-up} {...} */
+						
+						@media only screen and (min-width: 40.001rem) {
+							.wiring-example .s {
+								display: none;
+							}
+							.wiring-example .m {
+								display: inline;
+							}
+							.wiring-example .l {
+								display: none;
+							}
+						}
+						/* @media #{$large-up} {...} */
+						
+						@media only screen and (min-width: 64.001rem) {
+							.wiring-example .s {
+								display: none;
+							}
+							.wiring-example .m {
+								display: none;
+							}
+							.wiring-example .l {
+								display: inline;
+							}
+						}
+					</style>
+
+					<!-- -->
+					<div class="row">
+						<div class="small-12 medium-6 large-3 columns">
+							<span class="placeholder">
+								<span class="s">12</span>
+								<span class="m">6</span>
+								<span class="l">3</span>
+								<span>.columns</span>
+							</span>
+						</div>
+						<div class="small-12 medium-6 large-3 columns">
+							<span class="placeholder">
+								<span class="s">12</span>
+								<span class="m">6</span>
+								<span class="l">3</span>
+								<span>.columns</span>
+							</span>
+						</div>
+						<div class="small-12 medium-6 large-3 columns">
+							<span class="placeholder">
+								<span class="s">12</span>
+								<span class="m">6</span>
+								<span class="l">3</span>
+								<span>.columns</span>
+							</span>
+						</div>
+						<div class="small-12 medium-6 large-3 columns">
+							<span class="placeholder">
+								<span class="s">12</span>
+								<span class="m">6</span>
+								<span class="l">3</span>
+								<span>.columns</span>
+							</span>
+						</div>
+					</div>
+					<!-- -->
+					<div class="row">
+						<div class="small-6 medium-6 large-6 columns">
+							<span class="placeholder">
+								<span class="s">6</span>
+								<span class="m">6</span>
+								<span class="l">6</span>
+								<span>.columns</span>
+							</span>
+						</div>
+						<div class="small-6 medium-6 large-6 columns">
+							<span class="placeholder">
+								<span class="s">6</span>
+								<span class="m">6</span>
+								<span class="l">6</span>
+								<span>.columns</span>
+							</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+
+		<footer class="footer">
+			<div class="row">
+				<div class="small-12 columns">
+
+					<div class="footer__block">
+						<div class="footer__block__col">
+							<h2>Kolumn 1</h2>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Menyalternativ 1</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 2</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 3</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 4</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 5</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="footer__block__col">
+							<h2>Kolumn 2</h2>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Menyalternativ 1</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 2</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 3</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 4</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 5</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="footer__block__col">
+							<h2>Kolumn 3</h2>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Menyalternativ 1</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 2</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 3</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 4</a>
+									</li>
+									<li>
+										<a href="#">Menyalternativ 5</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="footer__block__col">
+							<h2>Kontakt</h2>
+							<div class="h-card">
+								<span class="p-name">Företagsnamn</span>
+								<br>
+								<span class="p-street-address">Gatuadress XX</span>
+								<br>
+								<span class="p-postal-code">123 45</span>
+								<span class="p-locality">Stad</span>
+								<br>
+								<span class="p-tel">08-123 456 78</span>
+								<br>
+								<a href="mailto:info@foretaget.se">
+									<span class="u-email">info@foretaget.se</span>
+								</a>
+								<br>
+								<span class="u-url">http://foretaget.se</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+
+
+		<!-- maybe a site footer -->
+
+
+		<!-- build:jsVendor Assets/js/vendor.min.js -->
+		<script src="Assets/bower//jquery/dist/jquery.js"></script>
+		<script src="Assets/bower//lodash/lodash.js"></script>
+		<script src="Assets/bower//fastclick/lib/fastclick.js"></script>
+		<!-- endbuild -->
+		<!-- build:js Assets/js/app.min.js -->
+		<script src="Assets/js/all.js"></script>
+		<script src="Assets/js/main.js"></script>
+		<script src="Assets/js/site-nav-mobile.js"></script>
+		<!-- endbuild -->
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='//www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+---
+title: Base Layout
+---
+
+{% extends 'default.njhtml' %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="small-12 columns">
+
+			<h1>Limetta Wiring</h1>
+			<p>Front-end boilerplate.</p>
+
+
+			<div class="teaser-block">
+				<div class="teaser">
+					<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+					<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+					<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus.</p>
+				</div>
+				<div class="teaser">
+					<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+					<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+					<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+				</div>
+				<div class="teaser">
+					<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+					<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+					<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+				</div>
+				<div class="teaser">
+					<img class="teaser__image" src="https://dummyimage.com/380x240/000/fff">
+					<h2 class="teaser__title">Lorem ipsum dolor sit amet</h2>
+					<p class="teaser__text">Consectetur adipisicing elit. Omnis magnam debitis culpa natus vero veniam sed hic asperiores neque ratione temporibus pariatur dolor rem, perferendis corporis voluptatum laborum maiores alias.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<section>
+		<div class="row">
+			<div class="small-12 columns wiring-example">
+
+				<h2>Grid example</h2>
+
+				<style>
+					.wiring-example .placeholder {
+					  display: block;
+					  width: 100%;
+					  height: 60px;
+					  line-height: 60px;
+					  margin-bottom: 10px;
+					  background: #f4f4f4;
+					  text-align: center;
+					}
+					.wiring-example .s:before { content: "small-"; }
+					.wiring-example .m:before {content: "medium-"; }
+					.wiring-example .l:before {content: "large-"; }
+					.wiring-example .s { display: inline; }
+					.wiring-example .m { display: none; }
+					.wiring-example .l { display: none; }
+
+					/* @media #{$medium-up} {...} */
+					@media only screen and (min-width: 40.001rem) {
+					  .wiring-example .s { display: none; }
+					  .wiring-example .m { display: inline; }
+					  .wiring-example .l { display: none; }
+					}
+					/* @media #{$large-up} {...} */
+					@media only screen and (min-width: 64.001rem) {
+					  .wiring-example .s { display: none; }
+					  .wiring-example .m { display: none; }
+					  .wiring-example .l { display: inline; }
+					}
+				</style>
+
+				<!-- -->
+				<div class="row">
+					<div class="small-12 medium-6 large-3 columns">
+						<span class="placeholder">
+							<span class="s">12</span>
+							<span class="m">6</span>
+							<span class="l">3</span>
+							<span>.columns</span>
+						</span>
+					</div>
+					<div class="small-12 medium-6 large-3 columns">
+						<span class="placeholder">
+							<span class="s">12</span>
+							<span class="m">6</span>
+							<span class="l">3</span>
+							<span>.columns</span>
+						</span>
+					</div>
+					<div class="small-12 medium-6 large-3 columns">
+						<span class="placeholder">
+							<span class="s">12</span>
+							<span class="m">6</span>
+							<span class="l">3</span>
+							<span>.columns</span>
+						</span>
+					</div>
+					<div class="small-12 medium-6 large-3 columns">
+						<span class="placeholder">
+							<span class="s">12</span>
+							<span class="m">6</span>
+							<span class="l">3</span>
+							<span>.columns</span>
+						</span>
+					</div>
+				</div>
+				<!-- -->
+				<div class="row">
+					<div class="small-6 medium-6 large-6 columns">
+						<span class="placeholder">
+							<span class="s">6</span>
+							<span class="m">6</span>
+							<span class="l">6</span>
+							<span>.columns</span>
+						</span>
+					</div>
+					<div class="small-6 medium-6 large-6 columns">
+						<span class="placeholder">
+							<span class="s">6</span>
+							<span class="m">6</span>
+							<span class="l">6</span>
+							<span>.columns</span>
+						</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

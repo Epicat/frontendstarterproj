@@ -1,0 +1,18 @@
+// content first..
+// override default (small) layout with large using susy-breakpoint
+$susy: (
+	columns: 4,
+	gutters: 0.26,
+	container: auto,
+	gutter-position: before,
+	last-flow: to,
+	use-custom: (
+		clearfix: true
+	)
+);
+
+$layout-l: (
+	columns: 12,
+	container: em(1144px),
+	gutters: 0.26
+);

@@ -1,0 +1,30 @@
+{
+  "name": "wiring",
+  "version": "0.1.0",
+  "authors": [
+    "jonas walden <jonas.walden@limetta.se>",
+    "carl mörner <carl.morner@limetta.se>",
+    "irina dragunova <irina.dragunova@limetta.se>",
+    "thomas kahn <thomas.kahn@limetta.se>"
+  ],
+  "description": "Front-end boilerplate",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower/",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "susy": "~2.2.2",
+    "bourbon": "~4.2.1"
+  },
+  "dependencies": {
+    "normalize-scss": "~3.0.2",
+    "fastclick": "~1.0.6",
+    "lodash": "~4.6.1"
+  }
+}

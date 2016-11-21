@@ -1,0 +1,150 @@
+$base-unit: 10px;
+$color-white: white;
+$color-gray-light: #ccc;
+$color-gray-border: #b4b4b4;
+
+$search-icon-bg: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Asketch%3D%22http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%2Fns%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3EImported%20Layers%207%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Lenson%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20sketch%3Atype%3D%22MSPage%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%226.-Desktop---Brand-Hub%22%20sketch%3Atype%3D%22MSArtboardGroup%22%20transform%3D%22translate%28-1341.000000%2C%20-73.000000%29%22%20stroke%3D%22%23221736%22%20stroke-width%3D%221.5%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M1349.5%2C77.75%20C1349.5%2C79.821%201347.821%2C81.5%201345.75%2C81.5%20C1343.679%2C81.5%201342%2C79.821%201342%2C77.75%20C1342%2C75.679%201343.679%2C74%201345.75%2C74%20C1347.821%2C74%201349.5%2C75.679%201349.5%2C77.75%20L1349.5%2C77.75%20Z%20M1352%2C84%20L1348.25%2C80.25%20L1352%2C84%20Z%22%20id%3D%22Imported-Layers-7%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat;
+$search-close-bg: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20viewBox%3D%22-299%20392%2012%209%22%20enable-background%3D%22new%20-299%20392%2012%209%22%20xml%3Aspace%3D%22preserve%22%3E%3Cg%20id%3D%22Layer_1%22%20xmlns%3Asketch%3D%22http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%2Fns%22%20display%3D%22none%22%3E%20%3Ctitle%3EImported%20Layers%2017%3C%2Ftitle%3E%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%20%3Cg%20id%3D%22Guides%22%20sketch%3Atype%3D%22MSPage%22%20display%3D%22inline%22%3E%20%20%3Cg%20id%3D%22Splashes%22%20transform%3D%22translate%28-654.000000%2C%20-212.000000%29%22%20sketch%3Atype%3D%22MSArtboardGroup%22%3E%20%20%20%3Cg%20id%3D%22Group%22%20transform%3D%22translate%28627.000000%2C%2019.000000%29%22%20sketch%3Atype%3D%22MSLayerGroup%22%3E%20%20%20%20%3Cpath%20id%3D%22Imported-Layers-17%22%20sketch%3Atype%3D%22MSShapeGroup%22%20fill%3D%22none%22%20stroke%3D%22%23FF5500%22%20stroke-width%3D%221.98%22%20d%3D%22M-261.6%2C586%20%20%20%20%20l-6%2C6.5l-3.4-3.6%22%2F%3E%20%20%20%3C%2Fg%3E%20%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3Cpath%20display%3D%22inline%22%20d%3D%22M-290.2%2C399.6l-3.1-3.1l3.1-3.1c0.3-0.3%2C0.3-0.9%2C0-1.2s-0.9-0.3-1.2%2C0l-3.1%2C3.1l-3.1-3.1%20%20c-0.3-0.3-0.9-0.3-1.2%2C0c-0.3%2C0.3-0.3%2C0.9%2C0%2C1.2l3.1%2C3.1l-3.1%2C3.1c-0.3%2C0.3-0.3%2C0.9%2C0%2C1.2c0.3%2C0.3%2C0.9%2C0.3%2C1.2%2C0l3.1-3.1l3.1%2C3.1%20%20c0.3%2C0.3%2C0.9%2C0.3%2C1.2%2C0C-289.9%2C400.4-289.9%2C399.9-290.2%2C399.6z%22%2F%3E%3C%2Fg%3E%3Cg%20id%3D%22Layer_2%22%3E%20%3Cpath%20d%3D%22M-290.2%2C399.6l-3.1-3.1l3.1-3.1c0.3-0.3%2C0.3-0.9%2C0-1.2s-0.9-0.3-1.2%2C0l-3.1%2C3.1l-3.1-3.1c-0.3-0.3-0.9-0.3-1.2%2C0%20%20c-0.3%2C0.3-0.3%2C0.9%2C0%2C1.2l3.1%2C3.1l-3.1%2C3.1c-0.3%2C0.3-0.3%2C0.9%2C0%2C1.2c0.3%2C0.3%2C0.9%2C0.3%2C1.2%2C0l3.1-3.1l3.1%2C3.1c0.3%2C0.3%2C0.9%2C0.3%2C1.2%2C0%20%20C-289.9%2C400.4-289.9%2C399.9-290.2%2C399.6z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat;
+      
+$search-width: 115px;
+$search-foc-width: 250px;
+$search-height: 36px;
+$search-mobile-height: 50px;
+$search-border-radius: 18px;
+$search-border: solid 1px $color-gray-border;
+$search-line-height: 18px;
+$search-box-shadow: 0 0 5px $color-gray-light;
+$search-foc-c: #000;
+$search-foc-bg: $color-white;
+$search-foc-border: $color-gray-light;
+$search-input-bg: $color-gray-light;
+
+.search-form {
+  &__inner {
+    position: fixed;
+    bottom: 0;
+    right: -100%;
+    top: 0;
+    width: 100%;
+    transition: all 0.05s ease-out;
+  }
+  &__input {
+    box-sizing: border-box;
+    padding: 0 $base-unit * 2;
+    transition: all .5s;
+  }
+  &__label {
+    background: $search-icon-bg;
+    display: block;
+    width: 40px;
+    background-size: 15px;
+    position: absolute;
+    overflow: hidden;
+    text-indent: -9999em;
+    right: 0;
+    transition: right 0.1s ease-out;
+    z-index: 102;
+  }
+  &__close {
+    color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 35px;
+    width: 50px;
+    opacity: 0;
+    padding-top: $base-unit * 2;
+    transition: opacity 0.1s ease-out;
+    background: $search-input-bg;
+    &__inner {
+      background: $search-close-bg;
+      background-size: 15px;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-position: 6px 0;
+    }
+  }
+}
+.search-is-open {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .search-form__close {
+    opacity: 1;
+    z-index: 9999;
+    cursor: pointer;
+  }
+  .search-form__inner {
+    right: 0;
+    z-index: 121;
+  }
+}
+@media (max-width: 650px) {
+  .search-form {
+    &__label {
+      top: $base-unit*2;
+      height: 32px;
+    }
+    &__input {
+      border: none;
+      background: $search-input-bg;
+      height: $search-mobile-height;
+      width: 100%;
+    }
+  }
+  .search-result {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+}
+@media (min-width: 650px) {
+  .search-form {
+    position: relative;
+    height: $search-height;
+    width: $search-foc-width;
+    &__inner {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &__input {
+      border-radius: $search-border-radius;
+      box-sizing: border-box;
+      height: $search-height;
+      background: $color-gray-light;
+      border: $search-border;
+      width: $search-width;
+      float: right;
+      line-height: $search-line-height;
+      &:focus {
+        width: $search-foc-width;
+        background-color: $search-foc-bg;
+        border-color: $search-foc-border;
+        box-shadow: $search-box-shadow;
+        background: $color-white;
+        outline: none;
+      }
+    }
+    &__label {
+      cursor: pointer;
+      top: $base-unit;
+      height: 26px;
+      background-position: 10px 0;
+    }
+    &__close {
+      &,
+      .search-is-open & {
+        display: none;
+      }
+    }
+  }
+  .search-result {
+    overflow-y: visible;
+    overflow-x: visible;
+  }
+}

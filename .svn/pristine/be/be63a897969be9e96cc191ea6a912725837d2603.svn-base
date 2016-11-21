@@ -1,0 +1,20 @@
+//document ready
+$(document).ready(function() {
+
+	var body = $('body'),
+		mobileNav = $('[data-site-nav-mobile]'),
+		searchLabel = $('.search-form__label');
+
+	mobileNav.siteNavMobile({
+		propertyName: 'aaa',
+		bbb: 'bbb',
+	});
+	body.breakPoints({
+		propertyName: 'value'
+	});
+	if( searchLabel.length > 0 ) {
+		searchLabel.searchPlugin({
+			propertyName: "a custom value"
+		});
+	}
+});

@@ -1,0 +1,62 @@
+@keyframes site-nav-mobile-overlay {
+  0% { opacity: 0; }
+  100% { opacity: 0.3; }
+}
+
+.site-nav-mobile {
+  position: fixed;
+  background: #f2f2f2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 320px;
+  z-index: 100;
+  transition: transform 250ms ease;
+  transform: translate3d(-100%, 0, 0);
+
+  //overlay
+  &-overlay {
+    display: none;
+
+    @include breakpoint($medium-up) {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      background-color: #000000;
+      left: -9999px;
+      top: -9999px;
+      visibility: hidden;
+      z-index: 99;
+			cursor: pointer;
+    }
+  }
+}
+
+//body
+body.site-nav-mobile--active {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .site-nav-mobile { transform: translate3d(0, 0, 0); }
+
+  .site-nav-mobile-overlay {
+    @include breakpoint($medium-up) {
+      animation: site-nav-mobile-overlay 200ms ease;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0.3;
+      visibility: visible;
+    }
+  }
+}
+
+.component-navigation-accordion {
+	
+}
